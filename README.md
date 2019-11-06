@@ -4,8 +4,8 @@
 
 
 
-- Git Clone URL proyect
-- cd proyect
+- Git Clone URL project
+- cd project
 - composer install
 
 
