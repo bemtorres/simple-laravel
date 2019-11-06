@@ -1,0 +1,6 @@
+{
+    "require": {
+        "kint-php/kint": "^3.2",
+        "illuminate/database": "^6.5"
+    }
+}
