@@ -9,7 +9,7 @@
 
     require_once '../vendor/autoload.php';
     require_once 'database/database.php';
-    require_once 'Modelo/Usuario.php';
+    require_once 'modelo/Usuario.php';
 
 
     $usuarios = Usuario::get();
