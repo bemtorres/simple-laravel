@@ -1,7 +1,7 @@
 <?php 
     require_once 'vendor/autoload.php';
     require_once 'app/database/database.php';
-    require_once 'app/Modelo/Usuario.php';
+    require_once 'app/modelo/Usuario.php';
 
     $usuario = Usuario::get();
 
