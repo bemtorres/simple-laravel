@@ -8,7 +8,7 @@ $database->addConnection([
     'driver'   => 'mysql',
     'host'     => 'localhost',
     'port'     => '3306',
-    'database' => 'lindasonrisa',
+    'database' => 'rincon',
     'username' => 'root',
     'password' => '',
     'charset'  => 'utf8',

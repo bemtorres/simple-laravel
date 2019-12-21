@@ -1,6 +1,6 @@
 <?php 
     require_once '../vendor/autoload.php';
-    require_once 'database/database.php';
+    require_once 'Database/Database.php';
 
     $usuarios = $database::table('empleado')->get();
 
@@ -8,8 +8,8 @@
 
 
     require_once '../vendor/autoload.php';
-    require_once 'database/database.php';
-    require_once 'modelo/Usuario.php';
+    require_once 'Database/Database.php';
+    require_once 'Modelo/Usuario.php';
 
 
     $usuarios = Usuario::get();
