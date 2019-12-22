@@ -12,13 +12,13 @@
 require_once './vendor/autoload.php';
 require_once './app/Database/Database.php';
 
-$json = array();
-$tables =  $database::select('show tables');
+$json=array();
+$tables=$database::select('show tables');
 foreach ($tables as $t) {
-    $nameTable = $t->Tables_in_rincon; //cambiar rincon por el nombre de su base de datos
-    $nameClass= "";
+    $nameTable=$t->Tables_in_rincon; //cambiar rincon por el nombre de su base de datos
+    $nameClass="";
     foreach (explode("_",$nameTable) as $w) { $nameClass.= ucwords($w); }
-    $describe =  $database::select('describe '.$nameTable );
+    $describe =  $database::select('describe '.$nameTable);
     $atributos = array(); 
     foreach ($describe as $columns) {
         $i = 0;
@@ -28,12 +28,43 @@ foreach ($tables as $t) {
         }
         array_push($atributos,$types);
     }    
-    $n = array($nameClass => $atributos);
-    array_push($json,$n);
+    array_push($json, array($nameClass => $atributos));
     createModel($nameClass,$nameTable,$atributos[0]);
 }
 
-echo json_encode($json);
+// echo json_encode($json);
+
+
+
+// buscar($json);
+
+// function buscar($json = array()){
+//     foreach ($json as $d) { //Arreglo principal
+//         foreach ($d as $key => $value) { //nombre
+//             echo "<strong>$key</strong> <br>";
+//             foreach ($value as $c => $v) {
+//                 echo "$v[0] " . buscarFK($json,$key,$v[0]) . "<br>";
+//                 break;
+//                 // print_r($v);
+//             }
+//             echo "<br>";
+//         }
+//     }
+// }
+// function buscarFK($json = array() ,$n, $id){
+//     foreach ($json as $d) { //Arreglo principal
+//         foreach ($d as $key => $value) { //nombre    
+//             if($n!=$key)        
+//             foreach ($value as $c => $v) {
+//                 if($v[0]==$id){
+//                     return $key . " ";
+//                 }
+//                 // echo "$v[0] <br>";
+//                 // print_r($v);
+//             }
+//         }
+//     }
+// }
 
 //Crear Modelo
 function createModel($nameClass,$table,$primaryKey=array()){
